@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "tweeter.apps.TweeterConfig",
+    # local apps
+    "accounts.apps.AccountsConfig",
 ]
 
 MIDDLEWARE = [
@@ -49,13 +50,15 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+# settings for customuser
+AUTH_USER_MODEL ="accounts.CustomUser"
 
 ROOT_URLCONF = "django_project.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [BASE_DIR ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
