@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block title %}Twits {% endblock title %}
+
+ {% block content %}
+ {% for twit in twit_list%}
+<div class="card">
+  <div class="card-header -center">
+    <span class="font-weight-bold">{{ twit.body}}</span> &middot;
+    <span class="text-muted"> by {{ twit.author}} | {{ twit.date}}</span>
+  </div>
+
+<div class ="card-footer text-center text-muted">
+  <a href="{% url 'twit_edit' twit.pk %}">Edit</a> |
+  <a href="{% url 'twit_delete' twit.pk %}"> Delete</a>
+ </div>
+</div>
+<br />
+{% endfor %}
+{% endblock content %}
+

@@ -43,10 +43,8 @@ INSTALLED_APPS = [
     # local apps
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
+    "twits.apps.TwitsConfig",
 ]
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 MIDDLEWARE = [
@@ -139,4 +137,19 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
 # Email settings
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = "noreply@localhost"
+EMAIL_HOST = "barnesbrothers.net"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_PORT = 2500
+EMAIL_USE_TLS = False  # Transport Layer Security  the recent way of encription info more secure.
+EMAIL_USE_SSL = False # Secure Sucket Layer old security  the old way of encription info
+
+
+# Crispy Forms Settings 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Setting time zone
+TIME_ZONE ="America/New_York"
